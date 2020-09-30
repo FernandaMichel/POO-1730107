@@ -4,6 +4,9 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
 
 /**
  * Implementación de la funcionalidad de leer desde un archivo de texto una 
@@ -14,6 +17,7 @@ public class MatrixReader {
     
     private String directorio;
     private File file;
+    private List<String> contenidoDirectorio;
     
     /**
      * Inicializa una nueva instancia de MatrizReader especificando el 
@@ -56,9 +60,12 @@ public class MatrixReader {
     public Double[][] getDoubleMatrix(
             String fileName, boolean nullOnNoNumber) throws IOException {
         
-        // TODO: Implementación de validación del archivo y su respectivo 
-        // control de errores.
-        
+      try{
+          contenidoDirectorio = Files.readAllLines(Paths.get(directorio));
+          
+      }
+      catch(IOException ex){
+      }
         // TODO: Funcionalidad de obtener la matriz desde el archivo indicado.
         
         return null;  // TODO: Eliminar el return null y regresar la matrix.
@@ -73,6 +80,12 @@ public class MatrixReader {
      */
     public Integer[][] getIntegerMatriz(
             String fileName, boolean nullOnNoNumber) throws IOException {
+        try{
+          contenidoDirectorio = Files.readAllLines(Paths.get(directorio));
+          
+      }
+      catch(IOException ex){
+      }
         
         // TODO: Implementación de validación del archivo y su respectivo 
         // control de errores.
